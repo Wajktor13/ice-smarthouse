@@ -126,6 +126,8 @@ if 'LightBulbMode' not in _M_SmartHouseIce.__dict__:
         def valueOf(self, _n):
             if _n in self._enumerators:
                 return self._enumerators[_n]
+            if _n in self._enumerators_str:
+                return self._enumerators_str[_n]
             return None
         valueOf = classmethod(valueOf)
 
@@ -135,6 +137,7 @@ if 'LightBulbMode' not in _M_SmartHouseIce.__dict__:
     LightBulbMode.STROBE = LightBulbMode("STROBE", 3)
     LightBulbMode.COLORCYCLE = LightBulbMode("COLORCYCLE", 4)
     LightBulbMode._enumerators = { 0:LightBulbMode.NORMAL, 1:LightBulbMode.BLINK, 2:LightBulbMode.BREATH, 3:LightBulbMode.STROBE, 4:LightBulbMode.COLORCYCLE }
+    LightBulbMode._enumerators_str = { "NORMAL":LightBulbMode.NORMAL, "BLINK":LightBulbMode.BLINK, "BREATH":LightBulbMode.BREATH, "STROBE":LightBulbMode.STROBE, "COLORCYCLE":LightBulbMode.COLORCYCLE }
 
     _M_SmartHouseIce._t_LightBulbMode = IcePy.defineEnum('::SmartHouseIce::LightBulbMode', LightBulbMode, (), LightBulbMode._enumerators)
 
